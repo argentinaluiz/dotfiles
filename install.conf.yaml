@@ -11,5 +11,17 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
+    ~/.oh-my-zsh/custom/plugins/fast-syntax-highlighting: oh-my-zsh/plugins/fast-syntax-highlighting/
+    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions: oh-my-zsh/plugins/zsh-autosuggestions/
+    ~/.oh-my-zsh/custom/plugins/zsh-completions: oh-my-zsh/plugins/zsh-completions/
 
 
+- shell:
+  - git submodule sync --recursive
+  # the following have to run after linking ~/.gitconfig
+  - git submodule update --init --recursive
+  - >
+    git clean -fdx
+    oh-my-zsh/plugins/
+
+#update .gitconfig with user and email
